@@ -71,7 +71,7 @@ const Signup = () => {
     console.log(user);
 
     try {
-      const res = await axios.post("http://localhost:5000/users/signup", user, {
+      const res = await axios.post("https://express-real-time-chat.onrender.com/users/signup", user, {
         headers: {
           "Content-Type": "application/json",
         },

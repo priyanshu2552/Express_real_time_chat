@@ -15,7 +15,7 @@ const SearchBox = ({ isOpen, onClose }) => {
       try {
         const token = localStorage.getItem("token");
         const res = await axios.get(
-          `http://localhost:5000/users/getusers/${username}`,
+          `https://express-real-time-chat.onrender.com/users/getusers/${username}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -54,7 +54,7 @@ const SearchBox = ({ isOpen, onClose }) => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/users/chats/createchat",
+        "https://express-real-time-chat.onrender.com/users/chats/createchat",
         chatData,
         {
           headers: {
@@ -66,7 +66,7 @@ const SearchBox = ({ isOpen, onClose }) => {
       if (res.status === 201) {
         // Socket.IO implementation
         const chat_id = res.data.data._id;
-        const socket = io("http://localhost:5000");
+        const socket = io("https://express-real-time-chat.onrender.com");
         socket.emit("Created_chat", chat_id);
 
         toast.success(res.data.message);

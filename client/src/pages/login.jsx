@@ -19,7 +19,7 @@ const Login = () => {
     const user = { email, password };
 
     try {
-      const res = await axios.post("http://localhost:5000/users/login", user, {
+      const res = await axios.post("https://express-real-time-chat.onrender.com/users/login", user, {
         headers: {
           "Content-Type": "application/json",
         },
